@@ -5,7 +5,8 @@ import googleapiclient.errors
 def get_youtube_data(search_keyword):
     api_service_name = "youtube"
     api_version = "v3"
-    DEVELOPER_KEY = "YOUR_API_KEY"
+    with open('.YoutubeAPI', 'r') as file:
+        DEVELOPER_KEY = file.read().strip()
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
